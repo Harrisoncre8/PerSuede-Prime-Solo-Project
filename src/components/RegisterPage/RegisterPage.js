@@ -5,17 +5,25 @@ class RegisterPage extends Component {
   state = {
     username: '',
     password: '',
+    passwordConfirm: '',
+    zipCode: '',
+    name: '',
   };
 
   registerUser = (event) => {
     event.preventDefault();
-
-    if (this.state.username && this.state.password) {
+    if(this.state.password !== this.state.passwordConfirm){
+      this.props.dispatch({type: 'REGISTRATION_PASSWORD_ERROR'})
+    }
+    else if (this.state.username && this.state.password && this.state.passwordConfirm
+             && this.state.zipCode && this.state.name) {
       this.props.dispatch({
         type: 'REGISTER',
         payload: {
           username: this.state.username,
           password: this.state.password,
+          zipCode: this.state.zipCode,
+          name: this.state.name
         },
       });
     } else {
@@ -61,6 +69,39 @@ class RegisterPage extends Component {
                 name="password"
                 value={this.state.password}
                 onChange={this.handleInputChangeFor('password')}
+              />
+            </label>
+          </div>
+          <div>
+            <label htmlFor="passwordConfirm">
+              Confirm Password:
+              <input
+                type="password"
+                name="passwordConfirm"
+                value={this.state.passwordConfirm}
+                onChange={this.handleInputChangeFor('passwordConfirm')}
+              />
+            </label>
+          </div>
+          <div>
+            <label htmlFor="zipCode">
+              Zip Code:
+              <input
+                type="number"
+                name="zipCode"
+                value={this.state.zipCode}
+                onChange={this.handleInputChangeFor('zipCode')}
+              />
+            </label>
+          </div>
+          <div>
+            <label htmlFor="name">
+              Name:
+              <input
+                type="text"
+                name="name"
+                value={this.state.name}
+                onChange={this.handleInputChangeFor('name')}
               />
             </label>
           </div>
