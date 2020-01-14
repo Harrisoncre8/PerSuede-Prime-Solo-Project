@@ -37,9 +37,9 @@ CREATE TABLE "favorite" (
 -- JOIN "outfits" ON "outfits"."id" = "favorite"."outfits_id"
 
 -- Dummy Data for weather
--- INSERT INTO "weather" ("weather_type", "high", "low") VALUES ('Summer', '200', '70');
+-- INSERT INTO "weather" ("id", "weather_type", "high", "low") VALUES ('1', 'Summer', '200', '70');
 -- INSERT INTO "weather" ("id", "weather_type", "high", "low") VALUES ('2', 'Fall', '69', '40');
--- INSERT INTO "weather" ("weather_type", "high", "low") VALUES ('Winter', '39', '-200');
+-- INSERT INTO "weather" ("id", "weather_type", "high", "low") VALUES ('3', 'Winter', '39', '-200');
 
 -- Data for outfits
 -- INSERT INTO "outfits" ("url", "age", "weather_id") VALUES ('https://shopsense.shopstyle.com/shop/honestlykate/43323134', 'adult', 3);
