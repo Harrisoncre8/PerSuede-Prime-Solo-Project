@@ -9,7 +9,8 @@ class RegisterPage extends Component {
     zipCode: '',
     name: '',
   };
-
+  
+  // handle register click
   registerUser = (event) => {
     event.preventDefault();
     if(this.state.password !== this.state.passwordConfirm){
@@ -30,7 +31,8 @@ class RegisterPage extends Component {
       this.props.dispatch({type: 'REGISTRATION_INPUT_ERROR'});
     }
   } // end registerUser
-
+  
+  // handle input value change
   handleInputChangeFor = propertyName => (event) => {
     this.setState({
       [propertyName]: event.target.value,
