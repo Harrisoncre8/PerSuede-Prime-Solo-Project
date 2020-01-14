@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
-// worker Saga: will be fired on "GET_OUTFITS" actions
+// worker Saga: will be fired on "GET_OUTFITS" action
 function* getOutfit() {
   try {
       const response = yield axios.get('/api/outfit');
