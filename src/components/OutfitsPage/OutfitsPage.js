@@ -8,7 +8,8 @@ export default function OutfitsPage(){
   // Sending action to sagas to GET images 
   // and dispatch action on page load
   useEffect(() => {
-    dispatch({type: 'GET_OUTFITS'})
+    dispatch({type: 'GET_OUTFITS'});
+    dispatch({type: 'GET_WEATHER'});
     }, [dispatch]);
 
   return(
