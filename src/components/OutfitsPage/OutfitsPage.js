@@ -1,16 +1,27 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 
-// This is one of our simplest components
-// It doesn't have local state, so it can be a function component.
-// It doesn't dispatch any redux actions or display any part of redux state
-// or even care what the redux state is, so it doesn't need 'connect()'
+export default function OutfitsPage(){
+  let dispatch = useDispatch();
+  let data = useSelector(state => state.outfits);
 
-const OutfitsPage = () => (
-  <div>
-    <p>
-      Outfits Page
-    </p>
+  // Sending action to sagas to GET images 
+  // and dispatch action on page load
+  useEffect(() => {
+    dispatch({type: 'GET_OUTFITS'})
+    }, [dispatch]);
+
+  return(
+    <div>
+      <p>Outfits Page</p>
+        {data.map( image => {
+          return(
+            <div key={image.id}>
+              <img alt="Fashionable clothing" width="400" height="400" src={image.url}/>
+            </div>
+          )
+        })}
+      <button>Generate New Outfits</button>
   </div>
-);
-
-export default OutfitsPage;
+  )
+}

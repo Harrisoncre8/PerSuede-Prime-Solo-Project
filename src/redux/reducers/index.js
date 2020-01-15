@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 import errors from './errorsReducer';
 import loginMode from './loginModeReducer';
+import outfits from './outfitReducer';
 import user from './userReducer';
 
 // rootReducer is the primary reducer for our entire project
@@ -12,6 +13,7 @@ import user from './userReducer';
 const rootReducer = combineReducers({
   errors, // contains registrationMessage and loginMessage
   loginMode, // will have a value of 'login' or 'registration' to control which screen is shown
+  outfits, // contains data from outfits database
   user, // will have an id and username if someone is logged in
 });
 
