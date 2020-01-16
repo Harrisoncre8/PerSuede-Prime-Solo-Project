@@ -3,6 +3,7 @@ import errors from './errorsReducer';
 import loginMode from './loginModeReducer';
 import outfits from './outfitReducer';
 import user from './userReducer';
+import weather from './weatherReducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
   loginMode, // will have a value of 'login' or 'registration' to control which screen is shown
   outfits, // contains data from outfits database
   user, // will have an id and username if someone is logged in
+  weather, // contains data from weather API
 });
 
 export default rootReducer;

@@ -21,7 +21,7 @@ router.post('/register', (req, res, next) => {
   const zipCode = req.body.zipCode;
   const name = req.body.name;
 
-  const queryText = 'INSERT INTO "account" ("username", "password", "zip-code", "name") VALUES ($1, $2, $3, $4) RETURNING id';
+  const queryText = 'INSERT INTO "account" ("username", "password", "zip_code", "name") VALUES ($1, $2, $3, $4) RETURNING id';
   pool.query(queryText, [username, password, zipCode, name])
     .then(() => res.sendStatus(201))
     .catch(() => res.sendStatus(500));

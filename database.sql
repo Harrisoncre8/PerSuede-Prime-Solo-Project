@@ -4,7 +4,7 @@ CREATE TABLE "account" (
     "id" SERIAL PRIMARY KEY,
     "username" VARCHAR (80) UNIQUE NOT NULL,
     "password" VARCHAR (1000) NOT NULL,
-    "zip-code" INT NOT NULL,
+    "zip_code" INT NOT NULL,
     "name" VARCHAR NOT NULL,
     "clearance_level" INT NOT NULL DEFAULT 0
 );
