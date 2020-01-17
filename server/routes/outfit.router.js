@@ -10,7 +10,7 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
 
 // GET route for outfits
 router.get('/', rejectUnauthenticated, (req, res) => {
-    pool.query(`SELECT * FROM "outfits"`).then(result => {
+    pool.query(`SELECT * FROM "outfits" ORDER BY RANDOM() LIMIT 5`).then(result => {
         res.send(result.rows);
     })
     .catch( error => {
