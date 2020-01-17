@@ -11,6 +11,7 @@ const passport = require('./strategies/user.strategy');
 // Route includes
 const userRouter = require('./routes/user.router');
 const outfitRouter = require('./routes/outfit.router');
+const weatherRouter = require('./routes/weather.router');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -25,7 +26,8 @@ app.use(passport.session());
 
 /* Routes */
 app.use('/api/user', userRouter);
-app.use('/api/outfit', outfitRouter)
+app.use('/api/outfit', outfitRouter);
+app.use('/api/weather', weatherRouter);
 
 // Serve static files
 app.use(express.static('build'));
