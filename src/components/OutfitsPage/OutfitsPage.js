@@ -42,7 +42,6 @@ export default function OutfitsPage(){
            onClick={handleNext}/> : ''
     )
   }
-  
   return(
     <section className="container">
       <div className="topDiv">
