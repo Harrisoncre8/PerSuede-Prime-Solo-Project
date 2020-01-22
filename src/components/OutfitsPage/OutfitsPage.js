@@ -1,29 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { makeStyles } from '@material-ui/core/styles';
 import './OutfitsPage.css'
-
-// Material UI stepper styling
-const useStyles = makeStyles(theme => ({
-  root: {
-    maxWidth: 400,
-    flexGrow: 1,
-  },
-  header: {
-    display: 'flex',
-    alignItems: 'center',
-    height: 50,
-    paddingLeft: theme.spacing(4),
-    backgroundColor: theme.palette.background.default,
-  },
-  img: {
-    height: 255,
-    maxWidth: 400,
-    overflow: 'hidden',
-    display: 'block',
-    width: '100%',
-  },
-}));
 
 export default function OutfitsPage(){
   // Using hooks for sagas and redux
@@ -33,7 +10,6 @@ export default function OutfitsPage(){
   let zipCode = useSelector(state => state.user.zip_code);
 
   // Using hooks for stepper index in local state
-  const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
 
   // Sending action to sagas to GET images 
@@ -61,21 +37,23 @@ export default function OutfitsPage(){
     let copyOutfit = [...outfitData];
     return(
       copyOutfit.length > 0 && activeStep < copyOutfit.length ? 
-      <img className={classes.img}
-      src={copyOutfit[activeStep].url}
-      alt="Fashionable outfit"
-      onClick={handleNext}/> :
-      ''
+      <img src={copyOutfit[activeStep].url} 
+           alt="Fashionable outfit"
+           onClick={handleNext}/> : ''
     )
   }
   
   return(
-    <div className={classes.root}>
+    <section className="container">
+      <div className="topDiv">
+          {renderOutfits()}
+      </div>
+      <div className="bottomDiv">
         <h3>Today's Forcast</h3>
-        {/* <h4>High: {weatherData && weatherData.temp_max}°F</h4>
-        <h4>Low: {weatherData && weatherData.temp_min}°F</h4> */}
-        {renderOutfits()}
-      <button onClick={newOutfit}>Generate New Outfits</button>
-  </div>
+        <h4>High: {weatherData && weatherData.temp_max}°F</h4>
+        <h4>Low: {weatherData && weatherData.temp_min}°F</h4>
+        <button onClick={newOutfit}>Generate New Outfits</button>
+      </div>
+  </section>
   )
 }
