@@ -36,10 +36,12 @@ CREATE TABLE "favorite" (
 -- SELECT "favorite"."id", "favorite"."user_id", "favorite"."outfits_id", "outfits"."url" FROM "favorite"
 -- JOIN "outfits" ON "outfits"."id" = "favorite"."outfits_id"
 
--- Dummy Data for weather
+-- Default Data for weather
 -- INSERT INTO "weather" ("id", "weather_type", "high", "low") VALUES ('1', 'Summer', '200', '70');
--- INSERT INTO "weather" ("id", "weather_type", "high", "low") VALUES ('2', 'Fall', '69', '40');
--- INSERT INTO "weather" ("id", "weather_type", "high", "low") VALUES ('3', 'Winter', '39', '-200');
+-- INSERT INTO "weather" ("id", "weather_type", "high", "low") VALUES ('2', 'Fall', '50', '30');
+-- INSERT INTO "weather" ("id", "weather_type", "high", "low") VALUES ('3', 'Winter', '30', '-200');
+-- INSERT INTO "weather" ("id", "weather_type", "high", "low") VALUES ('4', 'Spring', '70', '50');
+
 
 -- Data for outfits
 -- INSERT INTO "outfits" ("url", "age", "weather_id") VALUES ('https://i.shopstyle-cdn.com/i/9a4cf799-35de-49cc-8fab-5de073aa18d5/358-426/apparis-louise-faux-fur-jacket-HonestlyKate.jpeg', 'adult', 3);
@@ -58,5 +60,9 @@ CREATE TABLE "favorite" (
 -- ORDER BY RANDOM()
 -- LIMIT 5
 
+-- SELECT * FROM "outfits"
+-- JOIN "weather" ON "outfits"."weather_id" = "weather"."id"
+
+-- Table Joins for weather and outfits
 -- SELECT * FROM "outfits"
 -- JOIN "weather" ON "outfits"."weather_id" = "weather"."id"

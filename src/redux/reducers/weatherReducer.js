@@ -1,4 +1,4 @@
-// Store data from server to outfitReducer
+// Store data from API to weatherReducer
 const weatherReducer = (state = {},action) => {
     switch (action.type) {
       case 'SET_WEATHER':

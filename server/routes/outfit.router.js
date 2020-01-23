@@ -4,9 +4,9 @@ const router = express.Router();
 const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
 // SELECT * FROM "outfits"
-// JOIN "WEATHER" ON "outfits"."id" = "weather"."outfit.id"
-// WHERE "weather"."season" = 'fall'
-// AND "outfit".
+// JOIN "weather" ON "outfits"."weather_id" = "weather"."id"
+// WHERE "weather"."weather_type" = 'Fall'
+// AND "outfits"."age" = 'kid';
 
 // GET route for outfits
 router.get('/', rejectUnauthenticated, (req, res) => {
