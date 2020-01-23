@@ -42,7 +42,6 @@ CREATE TABLE "favorite" (
 -- INSERT INTO "weather" ("id", "weather_type", "high", "low") VALUES ('3', 'Winter', '30', '-200');
 -- INSERT INTO "weather" ("id", "weather_type", "high", "low") VALUES ('4', 'Spring', '70', '50');
 
-
 -- Data for outfits
 -- INSERT INTO "outfits" ("url", "age", "weather_id") VALUES ('https://i.shopstyle-cdn.com/i/9a4cf799-35de-49cc-8fab-5de073aa18d5/358-426/apparis-louise-faux-fur-jacket-HonestlyKate.jpeg', 'adult', 3);
 -- INSERT INTO "outfits" ("url", "age", "weather_id") VALUES ('https://i.shopstyle-cdn.com/i/87abaacf-b715-4071-ad25-b88603669edf/2d0-438/zimmermann-amari-multi-print-linen-mini-dress-HilaryRhoda.jpeg', 'adult', 1);

@@ -15,19 +15,27 @@ function sqlSetup(seasonParams){
         case 1:
            return `SELECT * FROM "outfits"
                    JOIN "weather" ON "outfits"."weather_id" = "weather"."id"
-                   WHERE "weather"."weather_type" = 'Summer'`
+                   WHERE "weather"."weather_type" = 'Summer'
+                   ORDER BY RANDOM()
+                   LIMIT 5`
         case 2:
             return `SELECT * FROM "outfits"
                     JOIN "weather" ON "outfits"."weather_id" = "weather"."id"
-                    WHERE "weather"."weather_type" = 'Fall'`
+                    WHERE "weather"."weather_type" = 'Fall'
+                    ORDER BY RANDOM()
+                    LIMIT 5`
         case 3:
             return `SELECT * FROM "outfits"
                     JOIN "weather" ON "outfits"."weather_id" = "weather"."id"
-                    WHERE "weather"."weather_type" = 'Winter'`
+                    WHERE "weather"."weather_type" = 'Winter'
+                    ORDER BY RANDOM()
+                    LIMIT 5`
         case 4:
             return `SELECT * FROM "outfits"
                     JOIN "weather" ON "outfits"."weather_id" = "weather"."id"
-                    WHERE "weather"."weather_type" = 'Spring'`
+                    WHERE "weather"."weather_type" = 'Spring'
+                    ORDER BY RANDOM()
+                    LIMIT 5`
     }
 }
 

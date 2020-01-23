@@ -13,12 +13,9 @@ export default function OutfitsPage(){
   // Using hooks to destructure stepper array in state
   const [activeStep, setActiveStep] = useState(0);
 
-  // Sending action to sagas to GET weather 
-  // and dispatch action on page load
-  useEffect(() => {
-    dispatch({type: 'GET_WEATHER', payload: zipCode});
-    // Once weather data is retreived from API
-    // send action to sagas to GET outfits based on weather data
+  // Function will dispatch a payload based
+  // on weather data from API
+  function sortWeather(){
     if( weatherData && weatherData.temp !== undefined ){
       let temperature = weatherData && weatherData.temp;
       let season = NaN;
@@ -38,6 +35,15 @@ export default function OutfitsPage(){
         dispatch({type: 'GET_OUTFITS', payload: season});
         }
       }
+  };
+
+  // Sending action to sagas to GET weather 
+  // and dispatch action on page load
+  useEffect(() => {
+    dispatch({type: 'GET_WEATHER', payload: zipCode});
+    // Once weather data is retreived from API
+    // send action to sagas to GET outfits
+    sortWeather();
     }, [dispatch, gotWeather, zipCode]);
 
   // Handle image click in stepper
@@ -50,8 +56,8 @@ export default function OutfitsPage(){
   
   // On click, generates new outfits
   const newOutfit = () => {
-    dispatch({type: 'GET_OUTFITS'});
-  }
+    sortWeather()
+  };
 
   // Conditional render outfit images from reducer
   function renderOutfits(){
