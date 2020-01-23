@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import HeartCheckbox from 'react-heart-checkbox';
 import './OutfitsPage.css'
 
 export default function OutfitsPage(){
@@ -10,8 +11,16 @@ export default function OutfitsPage(){
   let weatherData = useSelector( state => state.weather.main);
   let zipCode = useSelector(state => state.user.zip_code);
 
-  // Using hooks to destructure stepper array in state
+  // Using hooks to destructure stepper and checked array in state
   const [activeStep, setActiveStep] = useState(0);
+  const [checked, setCheck] = useState();
+  let [imageID, setImageID] = useState();
+
+  // Handles click on heart component
+  const heartStatus = () => {
+    setCheck(!checked);
+    setImageID(imageID = outfitData[activeStep].id);
+  }
 
   // Function will dispatch a payload based
   // on weather data from API
@@ -64,7 +73,7 @@ export default function OutfitsPage(){
     let copyOutfit = [...outfitData];
     return(
       copyOutfit.length > 0 && activeStep < copyOutfit.length ? 
-      <img src={copyOutfit[activeStep].url} 
+      <img src={copyOutfit[activeStep].url}
            alt="Fashionable outfit"
            onClick={handleNext}/> : ''
     )
@@ -73,6 +82,7 @@ export default function OutfitsPage(){
     <section className="container">
       <div className="topDiv">
           {renderOutfits()}
+          <HeartCheckbox imageID={imageID} checked={checked} onClick={heartStatus} tabindex="0" />
       </div>
       <div className="bottomDiv">
         <h3>Today's Forcast</h3>
