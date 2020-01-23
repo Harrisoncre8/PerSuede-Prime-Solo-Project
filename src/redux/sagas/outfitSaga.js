@@ -4,9 +4,10 @@ import { put, takeLatest } from 'redux-saga/effects';
 // worker Saga: will be fired on "GET_OUTFITS" action
 function* getOutfit(action) {
     console.log('ASDFASDFASDFASA', action.payload)
+    let season = action.payload;
   try {
-      const response = yield axios.get('/api/outfit');
-      yield put({ type: 'SET_OUTFITS', payload: response.data})
+      const response = yield axios.get(`/api/outfit/${season}`);
+      yield put({ type: 'SET_OUTFITS', payload: response.data});
   } catch (error) {
     alert('Sorry, something went wrong while getting outfits')
     console.log('Error getting outfits in saga', error);
