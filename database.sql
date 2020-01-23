@@ -36,10 +36,11 @@ CREATE TABLE "favorite" (
 -- SELECT "favorite"."id", "favorite"."user_id", "favorite"."outfits_id", "outfits"."url" FROM "favorite"
 -- JOIN "outfits" ON "outfits"."id" = "favorite"."outfits_id"
 
--- Dummy Data for weather
+-- Default Data for weather
 -- INSERT INTO "weather" ("id", "weather_type", "high", "low") VALUES ('1', 'Summer', '200', '70');
--- INSERT INTO "weather" ("id", "weather_type", "high", "low") VALUES ('2', 'Fall', '69', '40');
--- INSERT INTO "weather" ("id", "weather_type", "high", "low") VALUES ('3', 'Winter', '39', '-200');
+-- INSERT INTO "weather" ("id", "weather_type", "high", "low") VALUES ('2', 'Fall', '50', '30');
+-- INSERT INTO "weather" ("id", "weather_type", "high", "low") VALUES ('3', 'Winter', '30', '-200');
+-- INSERT INTO "weather" ("id", "weather_type", "high", "low") VALUES ('4', 'Spring', '70', '50');
 
 -- Data for outfits
 -- INSERT INTO "outfits" ("url", "age", "weather_id") VALUES ('https://i.shopstyle-cdn.com/i/9a4cf799-35de-49cc-8fab-5de073aa18d5/358-426/apparis-louise-faux-fur-jacket-HonestlyKate.jpeg', 'adult', 3);
@@ -49,6 +50,10 @@ CREATE TABLE "favorite" (
 -- INSERT INTO "outfits" ("url", "age", "weather_id") VALUES ('https://crossroadstrading.com/wp-content/uploads/2019/03/Will-Taylor.png', 'adult', 1);
 -- INSERT INTO "outfits" ("url", "age", "weather_id") VALUES ('https://miro.medium.com/max/1792/1*6BbmDn5qhcYQ2mwfKBno1A.png', 'kid', 1);
 -- INSERT INTO "outfits" ("url", "age", "weather_id") VALUES ('https://fashionista.com/.image/c_limit%2Ccs_srgb%2Cfl_progressive%2Ch_2000%2Cq_auto:good%2Cw_2000/MTQ1MzcxNDA2MTQ4OTA0NzIx/crazy-with-kaan.jpg', 'kid', 2);
+-- INSERT INTO "outfits" ("url", "age", "weather_id") VALUES ('https://i.shopstyle-cdn.com/i/b9b6195d-e1e2-49b5-9da1-30fa060ba507/1a9-280/chunky-knit-sweater-obsessionsnow.jpeg', 'adult', 2);
+-- INSERT INTO "outfits" ("url", "age", "weather_id") VALUES ('https://i.shopstyle-cdn.com/i/6d906d04-8999-4970-8ba9-215c7b12b891/200-280/j-brand-natasha-sky-high-skinny-jeans-in-seriously-black-obsessionsnow.jpeg', 'adult', 2);
+-- INSERT INTO "outfits" ("url", "age", "weather_id") VALUES ('https://i.shopstyle-cdn.com/i/d33911ef-2f35-4291-9197-5f2a63fa1284/200-280/allsaints-conroy-leather-biker-jacket-obsessionsnow.jpeg', 'adult', 2);
+-- INSERT INTO "outfits" ("url", "age", "weather_id") VALUES ('https://i.shopstyle-cdn.com/i/005627c7-84e9-4e9a-ba9b-8a888d52191a/200-280/majorelle-clive-pant-obsessionsnow.jpeg', 'adult', 2);
 
 -- Admin data
 -- INSERT INTO "account" ("username", "password", "zip_code", "name", "clearance_level",) VALUES ('admin', '12345678', 'password1234', 'admin', '1')
@@ -58,5 +63,9 @@ CREATE TABLE "favorite" (
 -- ORDER BY RANDOM()
 -- LIMIT 5
 
+-- SELECT * FROM "outfits"
+-- JOIN "weather" ON "outfits"."weather_id" = "weather"."id"
+
+-- Table Joins for weather and outfits
 -- SELECT * FROM "outfits"
 -- JOIN "weather" ON "outfits"."weather_id" = "weather"."id"

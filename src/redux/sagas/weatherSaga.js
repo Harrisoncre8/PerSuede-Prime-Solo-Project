@@ -7,6 +7,7 @@ function* getWeather(action) {
   try {
       const response = yield axios.get(`/api/weather/${zipCode}`);
       yield put({ type: 'SET_WEATHER', payload: response.data})
+      yield put({ type: 'CHECK_WEATHER'})
   } catch (error) {
     alert('Sorry, something went wrong while getting weather data')
     console.log('Error getting weather in saga', error);

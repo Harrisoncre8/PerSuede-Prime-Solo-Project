@@ -4,13 +4,45 @@ const router = express.Router();
 const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
 // SELECT * FROM "outfits"
-// JOIN "WEATHER" ON "outfits"."id" = "weather"."outfit.id"
-// WHERE "weather"."season" = 'fall'
-// AND "outfit".
+// JOIN "weather" ON "outfits"."weather_id" = "weather"."id"
+// WHERE "weather"."weather_type" = 'Fall'
+// AND "outfits"."age" = 'kid';
+
+// Function that sets different queries based on the seasonParams
+// from client side
+function sqlSetup(seasonParams){
+    switch(+seasonParams){
+        case 1:
+           return `SELECT * FROM "outfits"
+                   JOIN "weather" ON "outfits"."weather_id" = "weather"."id"
+                   WHERE "weather"."weather_type" = 'Summer'
+                   ORDER BY RANDOM()
+                   LIMIT 5`
+        case 2:
+            return `SELECT * FROM "outfits"
+                    JOIN "weather" ON "outfits"."weather_id" = "weather"."id"
+                    WHERE "weather"."weather_type" = 'Fall'
+                    ORDER BY RANDOM()
+                    LIMIT 5`
+        case 3:
+            return `SELECT * FROM "outfits"
+                    JOIN "weather" ON "outfits"."weather_id" = "weather"."id"
+                    WHERE "weather"."weather_type" = 'Winter'
+                    ORDER BY RANDOM()
+                    LIMIT 5`
+        case 4:
+            return `SELECT * FROM "outfits"
+                    JOIN "weather" ON "outfits"."weather_id" = "weather"."id"
+                    WHERE "weather"."weather_type" = 'Spring'
+                    ORDER BY RANDOM()
+                    LIMIT 5`
+    }
+}
 
 // GET route for outfits
-router.get('/', rejectUnauthenticated, (req, res) => {
-    pool.query(`SELECT * FROM "outfits" ORDER BY RANDOM() LIMIT 5`).then(result => {
+router.get('/:season', rejectUnauthenticated, (req, res) => {
+    let sqlQuery = sqlSetup(req.params.season);
+    pool.query(sqlQuery).then(result => {
         res.send(result.rows);
     })
     .catch( error => {
