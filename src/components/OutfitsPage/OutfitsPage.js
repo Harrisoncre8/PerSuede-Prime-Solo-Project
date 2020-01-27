@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import LogOutButton from '../LogOutButton/LogOutButton';
+import { Link } from 'react-router-dom';
 import HeartCheckbox from 'react-heart-checkbox';
 import './OutfitsPage.css'
 
@@ -108,6 +110,16 @@ export default function OutfitsPage(){
   }
   return(
     <section className="container">
+      {userData.id && (
+        <div className="logout">
+          <LogOutButton className="nav-link"/>
+        </div>
+      )}
+      {userData.id && (
+      <div className="fav-link">
+        <Link className="nav-link-fav" to="/favorite">
+          Favorites
+      </Link></div>)}
       <div className="topDiv">
           {renderOutfits()}
           <div className="heart">

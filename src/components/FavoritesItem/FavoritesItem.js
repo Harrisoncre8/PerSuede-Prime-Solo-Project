@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector} from 'react-redux';
+import { Link } from 'react-router-dom';
 import './FavoritesItem.css';
 
 export default function FavoritesItem(props){
@@ -18,6 +19,12 @@ const handleDelete = () => {
         <div className="favItem">
             <img src={props.url}/>
             <button className="removeBtn" onClick={handleDelete}>Delete Outfit</button>
+            {userData.id && (
+            <div className="favLink">
+                <Link className="to-outfit" to="/outfit">
+                    Back to Outfits
+                </Link>
+            </div>)}
         </div>
     )
 }

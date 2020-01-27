@@ -16,7 +16,7 @@ export default function FavoritesPage(){
 
   return(
     <div className="fav">
-      <h2>Favorites Page</h2>
+      <h2>{userData.name}'s Favorites</h2>
       {favData.map((item, i) => {
         return (
           <FavoritesItem key={i} url={item.url} imageID={item.outfits_id}/>

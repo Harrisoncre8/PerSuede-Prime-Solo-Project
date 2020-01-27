@@ -47,6 +47,44 @@ img {
   border-radius: 16px;
 }
 
+.fav-link {
+  position: absolute;
+  z-index: 2;
+}
+
+.logout {
+  position: absolute;
+  z-index: 2;
+}
+
+.nav-link {
+  background-color: #FFE4F1;
+  padding: 10px;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 5px;
+  border-color: white;
+  position: relative;
+  top: 685px;
+  left: 40px;
+  z-index: 100;
+}
+
+.nav-link-fav {
+  background-color: #FFE4F1;
+  padding: 10px;
+  font-size: 15px;
+  font-weight: 550;
+  border-radius: 5px;
+  border-color: white;
+  position: relative;
+  top: 695px;
+  left: 285px;
+  z-index: 100;
+  text-decoration: none;
+  color: black;
+}
+
 .textDiv {
   position: absolute;
   margin: auto;
