@@ -1,14 +1,5 @@
-img {
-  width: 375px;
-  height: 575px;
-  margin: 0px auto;
-  display: block;
-  object-fit: cover;
-  border-radius: 16px;
-}
-
 .bottomDiv {
-  background-color: white;
+  background-color: #f8f8ff;
   position: relative;
   left: 0;
   bottom: 0;
@@ -24,6 +15,43 @@ img {
 
 .container {
   position: relative;
+}
+
+.generateBtn {
+  background-color: #FFE4F1;
+  padding: 10px;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 5px;
+  border-color: white;
+}
+
+h3, h4{
+  margin: 15px;
+}
+
+.heart {
+  margin: auto;
+  right: 49px;
+  bottom: 297px;
+  position: absolute;
+  z-index: 52;
+}
+
+img {
+  width: 375px;
+  height: 575px;
+  margin: 0px auto;
+  display: block;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+.textDiv {
+  position: absolute;
+  margin: auto;
+  left: 95px;
+  top: 10px;
 }
 
 .topDiv {

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
-// worker Saga: will be fired on "GET_OUTFITS" action
+// worker Saga: will be fired on 'GET_OUTFITS' action
 function* getOutfit(action) {
     let season = action.payload;
   try {

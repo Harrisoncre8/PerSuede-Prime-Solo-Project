@@ -1,0 +1,14 @@
+.favItem {
+    text-align: center;
+}
+
+
+.removeBtn {
+    background-color: #FFE4F1;
+    padding: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 5px;
+    border-color: white;
+    margin: 10px;
+}
