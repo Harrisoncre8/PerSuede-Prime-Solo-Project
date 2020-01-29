@@ -4,11 +4,11 @@ body {
 }
 
 .alert {
-    background-color: #ff4545;
+    background-color: #FFE4F1;
     margin: 50px;
 }
 
-form {
+.loginForm {
     background-color: #f8f8ff;
     width: 300px;
     height: 250px;
@@ -43,7 +43,7 @@ input {
     box-shadow: 0 -4px 16px 0 rgba(0,0,0,.5);
 }
 
-.log-in, .log-out, .register {
+.log-in, .log-out {
   background-color: #FFE4F1;
   border-radius: 4px;
   color: black;
@@ -55,7 +55,7 @@ input {
 }
 
 .log-in:hover, .log-out:hover, .register:hover {
-  background-color: #008183;
+  background-color: #FFE4F1;
 }
 
 #loginTitle {

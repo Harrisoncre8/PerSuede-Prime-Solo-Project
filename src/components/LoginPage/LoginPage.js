@@ -43,6 +43,7 @@ class LoginPage extends Component {
         <div className="loginImage">
           <p id="loginTitle">PerSuede</p>
         </div>
+        <div className="loginForm">
           <form onSubmit={this.login} className="loginBtn">
             <h1>Login</h1>
             <div className="loginBtn">
@@ -76,6 +77,7 @@ class LoginPage extends Component {
               />
             </div>
           </form>
+        </div>
         <center>
           <button
             type="button"
