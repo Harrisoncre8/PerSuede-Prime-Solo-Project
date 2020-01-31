@@ -1,5 +1,5 @@
 // Store data from server to outfitReducer
-const outfitReducer = (state = [],action) => {
+const outfitReducer = (state = [], action) => {
     switch (action.type) {
       case 'SET_OUTFITS':
         return [...action.payload]

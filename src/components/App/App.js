@@ -12,7 +12,7 @@ import Nav from '../Nav/Nav';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 
-import AboutPage from '../AboutPage/AboutPage';
+import FavoritesPage from '../FavoritesPage/FavoritesPage'
 import UserPage from '../UserPage/UserPage';
 import OutfitsPage from '../OutfitsPage/OutfitsPage';
 
@@ -29,14 +29,14 @@ class App extends Component {
         <div>
           <Nav />
           <Switch>
-            {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
-            <Redirect exact from="/" to="/home" />
+            {/* Visiting localhost:3000 will redirect to localhost:3000/outfit */}
+            <Redirect exact from="/" to="/outfit" />
             {/* Visiting localhost:3000/about will show the about page.
             This is a route anyone can see, no login necessary */}
             <Route
               exact
-              path="/about"
-              component={AboutPage}
+              path="/favorite"
+              component={FavoritesPage}
             />
             {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/home will show the UserPage if the user is logged in.

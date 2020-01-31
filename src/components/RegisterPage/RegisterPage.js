@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import './RegisterPage.css';
 
 class RegisterPage extends Component {
   state = {
@@ -50,72 +51,76 @@ class RegisterPage extends Component {
             {this.props.errors.registrationMessage}
           </h2>
         )}
-        <form onSubmit={this.registerUser}>
-          <h1>Register User</h1>
-          <div>
-            <label htmlFor="username">
-              Username:
-              <input
-                type="text"
-                name="username"
-                value={this.state.username}
-                onChange={this.handleInputChangeFor('username')}
-              />
-            </label>
+        <div className="registerForm">
+          <div className="innerForm">
+            <form onSubmit={this.registerUser}>
+              <h1>Register User</h1>
+              <div>
+                <label htmlFor="username">
+                  Username:
+                  <input
+                    type="text"
+                    name="username"
+                    value={this.state.username}
+                    onChange={this.handleInputChangeFor('username')}
+                  />
+                </label>
+              </div>
+              <div>
+                <label htmlFor="password">
+                  Password:
+                  <input
+                    type="password"
+                    name="password"
+                    value={this.state.password}
+                    onChange={this.handleInputChangeFor('password')}
+                  />
+                </label>
+              </div>
+              <div>
+                <label htmlFor="passwordConfirm">
+                  Confirm Password:
+                  <input
+                    type="password"
+                    name="passwordConfirm"
+                    value={this.state.passwordConfirm}
+                    onChange={this.handleInputChangeFor('passwordConfirm')}
+                  />
+                </label>
+              </div>
+              <div>
+                <label htmlFor="zipCode">
+                  Zip Code:
+                  <input
+                    type="number"
+                    name="zipCode"
+                    value={this.state.zipCode}
+                    onChange={this.handleInputChangeFor('zipCode')}
+                  />
+                </label>
+              </div>
+              <div>
+                <label htmlFor="name">
+                  Name:
+                  <input
+                    type="text"
+                    name="name"
+                    value={this.state.name}
+                    onChange={this.handleInputChangeFor('name')}
+                  />
+                </label>
+              </div>
+              <div>
+                <input
+                  className="register"
+                  type="submit"
+                  name="submit"
+                  value="Register"
+                />
+              </div>
+          </form>
           </div>
-          <div>
-            <label htmlFor="password">
-              Password:
-              <input
-                type="password"
-                name="password"
-                value={this.state.password}
-                onChange={this.handleInputChangeFor('password')}
-              />
-            </label>
-          </div>
-          <div>
-            <label htmlFor="passwordConfirm">
-              Confirm Password:
-              <input
-                type="password"
-                name="passwordConfirm"
-                value={this.state.passwordConfirm}
-                onChange={this.handleInputChangeFor('passwordConfirm')}
-              />
-            </label>
-          </div>
-          <div>
-            <label htmlFor="zipCode">
-              Zip Code:
-              <input
-                type="number"
-                name="zipCode"
-                value={this.state.zipCode}
-                onChange={this.handleInputChangeFor('zipCode')}
-              />
-            </label>
-          </div>
-          <div>
-            <label htmlFor="name">
-              Name:
-              <input
-                type="text"
-                name="name"
-                value={this.state.name}
-                onChange={this.handleInputChangeFor('name')}
-              />
-            </label>
-          </div>
-          <div>
-            <input
-              className="register"
-              type="submit"
-              name="submit"
-              value="Register"
-            />
-          </div>
-        </form>
+        </div>
         <center>
           <button
             type="button"

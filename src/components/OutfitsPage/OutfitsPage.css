@@ -1,14 +1,5 @@
-img {
-  width: 375px;
-  height: 575px;
-  margin: 0px auto;
-  display: block;
-  object-fit: cover;
-  border-radius: 16px;
-}
-
 .bottomDiv {
-  background-color: white;
+  background-color: #f8f8ff;
   position: relative;
   left: 0;
   bottom: 0;
@@ -24,6 +15,81 @@ img {
 
 .container {
   position: relative;
+}
+
+.generateBtn {
+  background-color: #FFE4F1;
+  padding: 10px;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 5px;
+  border-color: white;
+}
+
+h3, h4{
+  margin: 15px;
+}
+
+.heart {
+  margin: auto;
+  right: 49px;
+  bottom: 297px;
+  position: absolute;
+  z-index: 52;
+}
+
+img {
+  width: 375px;
+  height: 575px;
+  margin: 0px auto;
+  display: block;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+.fav-link {
+  position: absolute;
+  z-index: 2;
+}
+
+.logout {
+  position: absolute;
+  z-index: 2;
+}
+
+.nav-link {
+  background-color: #FFE4F1;
+  padding: 10px;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 5px;
+  border-color: white;
+  position: relative;
+  top: 685px;
+  left: 40px;
+  z-index: 100;
+}
+
+.nav-link-fav {
+  background-color: #FFE4F1;
+  padding: 10px;
+  font-size: 15px;
+  font-weight: 550;
+  border-radius: 5px;
+  border-color: white;
+  position: relative;
+  top: 695px;
+  left: 285px;
+  z-index: 100;
+  text-decoration: none;
+  color: black;
+}
+
+.textDiv {
+  position: absolute;
+  margin: auto;
+  left: 95px;
+  top: 10px;
 }
 
 .topDiv {

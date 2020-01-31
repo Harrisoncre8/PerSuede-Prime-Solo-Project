@@ -1,17 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import LogOutButton from '../LogOutButton/LogOutButton';
+import { Link } from 'react-router-dom';
+import HeartCheckbox from 'react-heart-checkbox';
 import './OutfitsPage.css'
 
 export default function OutfitsPage(){
   // Using hooks for sagas and redux
   let dispatch = useDispatch();
   let outfitData = useSelector(state => state.outfits);
-  let gotWeather = useSelector(state => state.watcher)
+  let gotWeather = useSelector(state => state.watcher);
+  let userData = useSelector(state => state.user);
   let weatherData = useSelector( state => state.weather.main);
-  let zipCode = useSelector(state => state.user.zip_code);
 
-  // Using hooks to destructure stepper array in state
+  // Setting local state and setState functions using hooks
   const [activeStep, setActiveStep] = useState(0);
+  const [checked, setCheck] = useState();
+  let [imageID, setImageID] = useState();
 
   // Function will dispatch a payload based
   // on weather data from API
@@ -38,20 +43,54 @@ export default function OutfitsPage(){
   };
 
   // Sending action to sagas to GET weather 
-  // and dispatch action on page load
+  // and dispatch action on page load based on weather data.
+  // Checks heart on page load if heartStatus is true.
   useEffect(() => {
+    let zipCode = userData.zip_code;
     dispatch({type: 'GET_WEATHER', payload: zipCode});
-    // Once weather data is retreived from API
-    // send action to sagas to GET outfits
     sortWeather();
-    }, [dispatch, gotWeather, zipCode]);
+    }, [dispatch, userData, gotWeather]);
 
-  // Handle image click in stepper
-  const handleNext = () => {
+  // Global variable to be used with heart click handlers
+  // let heartStatus = outfitData[activeStep] && outfitData[activeStep].heart_status;
+  let heartStatus = outfitData[activeStep] && outfitData[activeStep].heart_status;
+
+  useEffect(() => {
+    if(heartStatus === true){
+      setCheck(heartStatus)
+    } else {
+      setCheck(false);
+    }
+  }, [outfitData, heartStatus]);
+
+  // Handle image click in image stepper
+  const handleStepper = () => {
     setActiveStep(prevActiveStep => prevActiveStep + 1);
     if(activeStep > 3){
       setActiveStep(0)
     }
+    if(heartStatus){
+      setCheck(heartStatus)
+    } else {
+      setCheck(false)
+    }
+  };
+
+  // Handles heart icon click dispatch to change
+  // heart status of selected image
+  const handleHeart = () => {
+    let userID = userData.id;
+    setImageID(imageID = outfitData[activeStep].id);
+    console.log('BOOYAH', imageID, userID);
+    if(!heartStatus){
+      setCheck(heartStatus)
+      dispatch({type: 'HEART_STATUS', payload: {id: imageID, status: true, user: userID}});
+      }
+    else {
+      console.log('UNLIKE THISSSSSS', imageID, userID);
+      setCheck(false)
+      dispatch({type: 'UNHEART_STATUS', payload: {id: imageID, user: userID}});
+      }
   };
   
   // On click, generates new outfits
@@ -64,22 +103,39 @@ export default function OutfitsPage(){
     let copyOutfit = [...outfitData];
     return(
       copyOutfit.length > 0 && activeStep < copyOutfit.length ? 
-      <img src={copyOutfit[activeStep].url} 
+      <img src={copyOutfit[activeStep].url}
            alt="Fashionable outfit"
-           onClick={handleNext}/> : ''
+           onClick={handleStepper}/> : ''
     )
   }
   return(
     <section className="container">
+      {userData.id && (
+        <div className="logout">
+          <LogOutButton className="nav-link"/>
+        </div>
+      )}
+      {userData.id && (
+      <div className="fav-link">
+        <Link className="nav-link-fav" to="/favorite">
+          Favorites
+      </Link></div>)}
       <div className="topDiv">
           {renderOutfits()}
+          <div className="heart">
+          <HeartCheckbox  imageID={imageID} checked={checked} onClick={handleHeart} tabindex="0" />
+          </div>
       </div>
       <div className="bottomDiv">
-        <h3>Today's Forcast</h3>
-        <h4>Current: {weatherData && weatherData.temp}°F</h4>
-        <h4>High: {weatherData && weatherData.temp_max}°F</h4>
-        <h4>Low: {weatherData && weatherData.temp_min}°F</h4>
-        <button onClick={newOutfit}>Generate New Outfits</button>
+        <div className="textDiv">
+          <h3>Hello, {userData.name}!</h3>
+          <h4>Today's Forcast</h4>
+          <h4>Current: {weatherData && weatherData.temp}°F</h4>
+          <h4>High: {weatherData && weatherData.temp_max}°F</h4>
+          <h4>Low: {weatherData && weatherData.temp_min}°F</h4>
+          <button size="small" variant="contained" className="generateBtn" 
+          onClick={newOutfit}>Generate New Outfits</button>
+        </div>
       </div>
   </section>
   )

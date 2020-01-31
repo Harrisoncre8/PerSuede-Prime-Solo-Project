@@ -1,0 +1,31 @@
+.favItem {
+    text-align: center;
+}
+
+.favLink {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 5px;
+}
+
+.removeBtn {
+    background-color: #FFE4F1;
+    padding: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 5px;
+    border-color: white;
+    margin: 10px;
+}
+
+.to-outfit {
+    background-color: #FFE4F1;
+    color: black;
+    padding: 10px;
+    font-size: 13.5px;
+    font-weight: 550;
+    border-radius: 5px;
+    border-color: white;
+    margin: 10px;
+    text-decoration: none;
+}

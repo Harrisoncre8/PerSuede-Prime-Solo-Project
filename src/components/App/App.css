@@ -4,28 +4,50 @@ body {
 }
 
 .alert {
-    background-color: #ff4545;
+    background-color: #FFE4F1;
     margin: 50px;
 }
 
-form {
-    background-color: #dbd5d5;
-    width: 30%;
+.loginForm {
+    background-color: #f8f8ff;
+    width: 300px;
     height: 250px;
-    margin: 20px auto;
+    margin-top: -45px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;    
     padding: 25px;
-    border-radius: 2px;
+    border-radius: 16px;
+    box-shadow: 0 -4px 16px 0 rgba(0,0,0,.5);
 }
 
 input {
     margin: 5px;
     margin-bottom: 10px;
+    background-color: whitesmoke;
 }
 
-.log-in, .log-out, .register {
-  background-color: #00acb0;
+.loginBtn {
+    text-align: center;
+}
+
+.loginImage {
+    background-image: url('https://c.wallhere.com/photos/c8/55/1600x837_px_Abstract_Art_Wallpaper_HD_abstract_images_anime_drawings_artworks_cool_photos_illustration_movie_characters-799936.jpg!d');
+    background-repeat: no-repeat;
+    background-size: 700px;    
+    width: 300px;
+    height: 325px;
+    margin: 20px auto;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 -4px 16px 0 rgba(0,0,0,.5);
+}
+
+.log-in, .log-out {
+  background-color: #FFE4F1;
   border-radius: 4px;
-  color: #f8f8f8;
+  color: black;
+  font-weight: bold;
   min-height: 50px;
   min-width: 100px;
   outline:0;
@@ -33,7 +55,17 @@ input {
 }
 
 .log-in:hover, .log-out:hover, .register:hover {
-  background-color: #008183;
+  background-color: #FFE4F1;
+}
+
+#loginTitle {
+    position: absolute;
+    font-family: URW Chancery L, cursive;
+    font-size: 35px;
+    left: 245px;
+    top: 135px;
+    color: black;
+    font-weight: bolder;
 }
 
 /* This line makes the "Register" and "Login" buttons look like links */
@@ -47,3 +79,4 @@ input {
     border-bottom:1px solid #444; 
     cursor: pointer;
 }
+
